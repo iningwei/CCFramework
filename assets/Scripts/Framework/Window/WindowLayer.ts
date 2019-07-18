@@ -1,32 +1,33 @@
 
 export enum WindowLayer {
     /**
-     * 隐藏层
+     * 缓存层
      */
-    Hide,
-    
+    Cache = "Cache",
+ 
+
     /**
      * 可显示层的最低层
      */
-    Bottom,
+    Bottom = "Bottom",
 
     /**
      * 基本UI层
      */
-    Basic,
+    Basic = "Basic",
 
     /**
      * 场景切换层
      */
-    SceneChange,
+    SceneChange = "SceneChange",
 
     /**
     * 信息提示层
     */
-    Msg,
+    Msg = "Msg",
 
     /**
      * 最顶层
      */
-    Top,
+    Top = "Top",
 }
