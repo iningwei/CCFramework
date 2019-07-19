@@ -15,12 +15,9 @@ export class WindowX {
      * @param isCache 
      */
     constructor(public node: cc.Node, public name: WindowName) {
-
         this.Init();
     }
     protected LinkUI() {
-
-
     }
 
     public Init() {
