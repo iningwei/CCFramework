@@ -4,6 +4,8 @@ import { WindowLayer } from "../../Framework/Window/WindowLayer";
 import { NodeExt } from "../../SelfTool/NodeExt";
 import TouchComp from "../../SelfTool/TouchComp/TouchComp";
 import { WindowManager } from "../../Framework/Window/WindowManager";
+import { MainController } from "../MainWindow/MainController";
+import BattleController from "./BattleController";
 
 
 export class BattleWindow extends WindowX {
@@ -34,7 +36,7 @@ export class BattleWindow extends WindowX {
     }
 
     private onBackClicked(event: cc.Event.EventTouch) {
-        WindowManager.Instance.Show(WindowName.MainWindow, WindowLayer.Basic, false, null);
-        WindowManager.Instance.Close(this.name);
+        MainController.Instance.ShowWindow(WindowLayer.Basic);
+        BattleController.Instance.CloseWindow();        
     }
 }

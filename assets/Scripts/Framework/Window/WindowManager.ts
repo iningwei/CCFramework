@@ -68,6 +68,13 @@ export class WindowManager {
         this.cachedWindows.Remove(name);
     }
 
+    public GetOpenedWindow(windowName: WindowName): WindowX {
+        if (!this.checkWindowOpened(windowName)) {
+            Debug.Error(windowName + " 不在openDic中");
+            return null;
+        }
+        return this.openedWindows[windowName];
+    }
 
 
 

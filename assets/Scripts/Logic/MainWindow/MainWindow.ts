@@ -5,6 +5,8 @@ import Debug from "../../SelfTool/Debug";
 import { NodeExt } from "../../SelfTool/NodeExt";
 import TouchComp from "../../SelfTool/TouchComp/TouchComp";
 import { WindowManager } from "../../Framework/Window/WindowManager";
+import { MainController } from "./MainController";
+import BattleController from "../BattleWindow/BattleController";
 
 
 export class MainWindow extends WindowX {
@@ -26,7 +28,6 @@ export class MainWindow extends WindowX {
 
     }
 
-
     public Show(layer: WindowLayer, isCache: boolean, datas: any[]) {
         super.Show(layer, isCache, datas);
     }
@@ -39,7 +40,7 @@ export class MainWindow extends WindowX {
     }
 
     private onToBattleClicked(event: cc.Event.EventTouch) {
-        WindowManager.Instance.Show(WindowName.BattleWindow, WindowLayer.Basic, false, null);
-        WindowManager.Instance.Close(this.name);
+        MainController.Instance.CloseWindow();
+        BattleController.Instance.ShowWindow(WindowLayer.Basic);
     }
 }
