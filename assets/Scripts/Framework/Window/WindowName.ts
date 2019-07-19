@@ -1,5 +1,6 @@
 
 export enum WindowName {
     MainWindow = "MainWindow",
-    BattleWindow = "BattleWindow"
+    BattleWindow = "BattleWindow",
+    DebugWindow = "DebugWindow"
 }

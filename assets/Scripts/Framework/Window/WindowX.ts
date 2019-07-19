@@ -3,7 +3,7 @@ import { WindowName } from "./WindowName";
 import { WindowManager } from "./WindowManager";
 
 //Window会和JS自带的Window类冲突，故使用WindowX
-export class WindowX {   
+export class WindowX {
     public layer: WindowLayer;
     public isCache: boolean;
 
@@ -15,12 +15,22 @@ export class WindowX {
      * @param isCache 
      */
     constructor(public node: cc.Node, public name: WindowName) {
-        
+
         this.Init();
+    }
+    protected LinkUI() {
+
+
     }
 
     public Init() {
+        this.LinkUI();
+        this.AddUIEventListener();
+    }
+    public AddUIEventListener() {
 
+    }
+    public RemoveUIEventListener() {
 
     }
     public Show(layer: WindowLayer, isCache: boolean, datas: any[]) {
@@ -37,9 +47,9 @@ export class WindowX {
         if (this.isCache) {
             WindowManager.Instance.SetLayer(this.node, WindowLayer.Cache);
             this.node.active = false;
-
         }
         else {
+            this.RemoveUIEventListener();
             this.node.removeFromParent();
             this.node.destroy();
             this.node = null;
@@ -48,5 +58,5 @@ export class WindowX {
     public Update(dt: number) {
 
     }
- 
+
 }

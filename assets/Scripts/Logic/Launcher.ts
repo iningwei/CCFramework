@@ -1,3 +1,7 @@
+import { WindowManager } from "../Framework/Window/WindowManager";
+import { WindowName } from "../Framework/Window/WindowName";
+import { WindowLayer } from "../Framework/Window/WindowLayer";
+
 // Learn TypeScript:
 //  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/typescript.html
@@ -12,12 +16,17 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class Launcher extends cc.Component {
+    private openDebugWindow: boolean = true;
     onLoad() {
         this.Init();
     }
 
     start() {
+        WindowManager.Instance.Show(WindowName.MainWindow, WindowLayer.Basic);
 
+        if (this.openDebugWindow) {
+            WindowManager.Instance.Show(WindowName.DebugWindow, WindowLayer.Debug);
+        }
     }
 
     update(dt) { }
@@ -25,6 +34,6 @@ export default class Launcher extends cc.Component {
 
 
     private Init() {
-
+        WindowManager.Instance.Init();
     }
 }
