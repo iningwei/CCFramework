@@ -1,12 +1,12 @@
+import { MainController } from "./MainController";
 import { WindowX } from "../../Framework/Window/WindowX";
 import { WindowName } from "../../Framework/Window/WindowName";
 import { WindowLayer } from "../../Framework/Window/WindowLayer";
-import Debug from "../../SelfTool/Debug";
 import { NodeExt } from "../../SelfTool/NodeExt";
 import TouchComp from "../../SelfTool/TouchComp/TouchComp";
 import { WindowManager } from "../../Framework/Window/WindowManager";
-import { MainController } from "./MainController";
-import BattleController from "../BattleWindow/BattleController";
+
+
 
 
 export class MainWindow extends WindowX {
@@ -40,7 +40,11 @@ export class MainWindow extends WindowX {
     }
 
     private onToBattleClicked(event: cc.Event.EventTouch) {
-        MainController.Instance.CloseWindow();
-        BattleController.Instance.ShowWindow(WindowLayer.Basic);
+        // MainController.Instance.CloseWindow();
+        // BattleController.Instance.ShowWindow(WindowLayer.Basic);//会产生循环引用的导致的undefined问题
+
+
+        WindowManager.Instance.Close(WindowName.MainWindow);
+        WindowManager.Instance.Show(WindowName.BattleWindow, WindowLayer.Basic);
     }
 }

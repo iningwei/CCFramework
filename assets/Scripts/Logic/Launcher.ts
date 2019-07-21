@@ -1,8 +1,8 @@
-import { WindowManager } from "../Framework/Window/WindowManager";
-import { WindowName } from "../Framework/Window/WindowName";
-import { WindowLayer } from "../Framework/Window/WindowLayer";
-import { MainController } from "./MainWindow/MainController";
 import { DebugController } from "./DebugWindow/DebugController";
+import { MainController } from "./MainWindow/MainController";
+import { WindowLayer } from "../Framework/Window/WindowLayer";
+import { WindowManager } from "../Framework/Window/WindowManager";
+
 
 // Learn TypeScript:
 //  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
@@ -23,12 +23,12 @@ export default class Launcher extends cc.Component {
         this.Init();
     }
 
-    start() {
+    start() {        
         MainController.Instance.ShowWindow(WindowLayer.Basic);
          
-        // if (this.openDebugWindow) {
-        //     DebugController.Instance.ShowWindow(WindowLayer.Debug);            
-        // }
+        if (this.openDebugWindow) {
+            DebugController.Instance.ShowWindow(WindowLayer.Debug);
+        }
     }
 
     update(dt) { }
