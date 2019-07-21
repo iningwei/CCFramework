@@ -41,7 +41,7 @@ export class MainWindow extends WindowX {
 
     private onToBattleClicked(event: cc.Event.EventTouch) {
         // MainController.Instance.CloseWindow();
-        // BattleController.Instance.ShowWindow(WindowLayer.Basic);//会产生循环引用的导致的undefined问题
+        // BattleController.Instance.ShowWindow(WindowLayer.Basic);//会产生循环引用的导致的undefined问题，暂时使用下面方式调用
 
 
         WindowManager.Instance.Close(WindowName.MainWindow);

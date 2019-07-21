@@ -36,7 +36,7 @@ export class BattleWindow extends WindowX {
 
     private onBackClicked(event: cc.Event.EventTouch) {
         // MainController.Instance.ShowWindow(WindowLayer.Basic);
-        // BattleController.Instance.CloseWindow();     
+        // BattleController.Instance.CloseWindow();     //会产生循环引用的导致的undefined问题，暂时使用下面方式调用
         
         WindowManager.Instance.Close(WindowName.BattleWindow);
         WindowManager.Instance.Show(WindowName.MainWindow, WindowLayer.Basic);

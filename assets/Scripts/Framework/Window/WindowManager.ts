@@ -25,9 +25,7 @@ export class WindowManager {
     }
 
     public Init() {
-
         this.initLayerNodes();
-
     }
     private initLayerNodes() {
         this.layerNodes.Add(WindowLayer.Cache, cc.find("Canvas/Layers/Cache"));
