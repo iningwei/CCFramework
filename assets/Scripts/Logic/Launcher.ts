@@ -2,7 +2,6 @@ import { DebugController } from "./DebugWindow/DebugController";
 import { MainController } from "./MainWindow/MainController";
 import { WindowLayer } from "../Framework/Window/WindowLayer";
 import { WindowManager } from "../Framework/Window/WindowManager";
-
 import Debug from "../SelfTool/Debug";
 
 

@@ -18,7 +18,4 @@ export default class BattleController extends Controller {
         super();
        this.WindowModel = new BattleModel(WindowName.BattleWindow);
     }
-
-  
-
 }
