@@ -16,6 +16,6 @@ export default class BattleController extends Controller {
 
     constructor() {
         super();
-       this.WindowModel = new BattleModel(WindowName.BattleWindow);
+        this.WindowModel = new BattleModel(WindowName.BattleWindow);
     }
 }
