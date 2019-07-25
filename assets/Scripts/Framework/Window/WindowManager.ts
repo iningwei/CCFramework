@@ -58,6 +58,7 @@ export class WindowManager {
         }
         this.cachedWindows.Add(name, w);
     }
+    
     private removeWindowFromCacheDic(name: WindowName) {
         if (!this.checkWindowCached(name)) {
             Debug.Error(name + "不在cacheDic中");
@@ -142,6 +143,20 @@ export class WindowManager {
         targetNode.position = new cc.Vec2(0, 0);
     }
 
+
+
+    /**
+     * 向目标窗体发送消息
+     * @param name 目标窗体 
+     * @param msgId 消息号，各个窗体自己维护，可重复
+     * @param datas 透传的数据
+     */
+    public SendWindowMessage(name: WindowName, msgId: number, datas: any[]) {
+        let w = this.getOpenedWindow(name);
+        if (w != null) {
+            w.HandleWindowMessage(msgId, datas);
+        }
+    }
 
     /**
      * 获得缓存窗口

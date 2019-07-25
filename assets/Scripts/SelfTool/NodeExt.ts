@@ -2,22 +2,42 @@
 export class NodeExt {
 
     /**
-     * 从子节点（支持子节点的子节点）中找到第一个名字匹配的节点
-     * 如果没有找到的话，返回undefined
+     * 从目标节点及其子孙节点中找到满足`name`的节点
      * @param targetNode 
      * @param name 
      */
-    public static GetChildByName(targetNode: cc.Node, name: string): cc.Node {
-        let childs = targetNode.children;
-        for (let i = 0; i < childs.length; i++) {
-            const element = childs[i];
-            if (element.name == name) {
-                return element;
-            }
-            else {
-                NodeExt.GetChildByName(element, name);
+    public static Search(targetNode: cc.Node, name: string): cc.Node {
+        if (targetNode.name == name) {
+            return targetNode;
+        }
+        for (let i = 0; i < targetNode.children.length; i++) {
+            const child = targetNode.children[i];
+            let result = this.Search(child, name);
+            if (result != null) {
+                return result;
             }
         }
+
+        return null;
+    }
+
+
+    //error!!! TODO
+    public static FindChildByName(targetNode: cc.Node, name: string): cc.Node {
+        for (let i = 0; i < targetNode.children.length; i++) {
+            const child = targetNode[i];
+            if (child.name == name) {
+                return child;
+            }
+            else {
+                let result = this.FindChildByName(child, name);
+                if (result != null) {
+                    return result;
+                }
+            }
+        }
+
+        return null;
     }
 
     /**
@@ -28,6 +48,10 @@ export class NodeExt {
     public static GetChildByPath(targetNode: cc.Node, path: string) {
         let names = path.split('/');
         let target = targetNode.getChildByName(names[0]);
+        if (target == null) {
+            return null;
+        }
+
         for (let i = 1; i < names.length; i++) {
             const element = names[i];
             target = target.getChildByName(element);

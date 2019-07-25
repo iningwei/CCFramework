@@ -15,7 +15,7 @@ export class BattleWindow extends WindowX {
     }
 
     protected LinkUI() {
-        this.back = NodeExt.GetChildByName(this.node, "backBtn");
+        this.back = NodeExt.Search(this.node, "backBtn");
     }
 
     public AddUIEventListener() {

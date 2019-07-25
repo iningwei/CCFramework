@@ -5,6 +5,7 @@ import { WindowLayer } from "../../Framework/Window/WindowLayer";
 import { NodeExt } from "../../SelfTool/NodeExt";
 import TouchComp from "../../SelfTool/TouchComp/TouchComp";
 import { WindowManager } from "../../Framework/Window/WindowManager";
+import Debug from "../../SelfTool/Debug";
 
 
 
@@ -17,7 +18,15 @@ export class MainWindow extends WindowX {
     }
 
     protected LinkUI() {
-        this.toBattle = NodeExt.GetChildByName(this.node, "battleBtn");
+        // let xx = NodeExt.GetChildByName(this.node, "battleBtn");
+        // let xxx = NodeExt.GetChildByPath(this.node, "bbb");
+        // Debug.Log("xx:" + xx);
+        // Debug.Log("xxx:" + xxx);
+
+        this.toBattle = NodeExt.FindChildByName(this.node, "battleBtn");
+        if (this.toBattle == null) {
+            Debug.Log("fuck");
+        }
     }
 
     public AddUIEventListener() {

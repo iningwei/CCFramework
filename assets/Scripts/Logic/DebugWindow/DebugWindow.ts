@@ -14,7 +14,7 @@ export class DebugWindow extends WindowX {
     }
 
     protected LinkUI() {
-        this.getLayerMsg = NodeExt.GetChildByName(this.node, "getWindowLayerMsg");
+        this.getLayerMsg = NodeExt.Search(this.node, "getWindowLayerMsg");
     }
     public AddUIEventListener() {
         this.getLayerMsg.addComponent(TouchComp).SetTouchEndCallback(this.onGetLayerMsgClicked.bind(this));

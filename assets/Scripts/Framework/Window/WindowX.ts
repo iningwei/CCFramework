@@ -8,7 +8,7 @@ export class WindowX {
     public isCache: boolean;
 
     /**
-     * 
+     * 构造函数
      * @param node  
      * @param name  
      * @param layer 
@@ -24,10 +24,14 @@ export class WindowX {
         this.LinkUI();
         this.AddUIEventListener();
     }
+
     public AddUIEventListener() {
 
     }
     public RemoveUIEventListener() {
+
+    }
+    public HandleWindowMessage(msgId: number, datas: any[]) {
 
     }
     public Show(layer: WindowLayer, isCache: boolean, datas: any[]) {
