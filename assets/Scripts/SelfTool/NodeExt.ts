@@ -10,6 +10,7 @@ export class NodeExt {
         if (targetNode.name == name) {
             return targetNode;
         }
+        
         for (let i = 0; i < targetNode.children.length; i++) {
             const child = targetNode.children[i];
             let result = this.Search(child, name);
