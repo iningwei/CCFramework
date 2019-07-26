@@ -18,15 +18,7 @@ export class MainWindow extends WindowX {
     }
 
     protected LinkUI() {
-        // let xx = NodeExt.GetChildByName(this.node, "battleBtn");
-        // let xxx = NodeExt.GetChildByPath(this.node, "bbb");
-        // Debug.Log("xx:" + xx);
-        // Debug.Log("xxx:" + xxx);
-
-        this.toBattle = NodeExt.FindChildByName(this.node, "battleBtn");
-        if (this.toBattle == null) {
-            Debug.Log("fuck");
-        }
+        this.toBattle = NodeExt.Search(this.node, "battleBtn");
     }
 
     public AddUIEventListener() {

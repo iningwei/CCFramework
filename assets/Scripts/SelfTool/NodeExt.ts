@@ -10,7 +10,7 @@ export class NodeExt {
         if (targetNode.name == name) {
             return targetNode;
         }
-        
+
         for (let i = 0; i < targetNode.children.length; i++) {
             const child = targetNode.children[i];
             let result = this.Search(child, name);
@@ -23,21 +23,23 @@ export class NodeExt {
     }
 
 
-    //error!!! TODO
+    /**
+     * 
+     * 使用 深度优先的方式
+     * @param targetNode 
+     * @param name 
+     */
     public static FindChildByName(targetNode: cc.Node, name: string): cc.Node {
         for (let i = 0; i < targetNode.children.length; i++) {
-            const child = targetNode[i];
+            const child = targetNode.children[i];
             if (child.name == name) {
                 return child;
             }
-            else {
-                let result = this.FindChildByName(child, name);
-                if (result != null) {
-                    return result;
-                }
-            }
-        }
 
+            let result = this.FindChildByName(child, name);
+            if (result != null)
+                return result;
+        }
         return null;
     }
 
@@ -47,16 +49,30 @@ export class NodeExt {
      * @param path 
      */
     public static GetChildByPath(targetNode: cc.Node, path: string) {
-        let names = path.split('/');
-        let target = targetNode.getChildByName(names[0]);
-        if (target == null) {
-            return null;
-        }
+        // let names = path.split('/');
+        // let target = targetNode.getChildByName(names[0]);
+        // if (target == null) {
+        //     return null;
+        // }
 
-        for (let i = 1; i < names.length; i++) {
-            const element = names[i];
-            target = target.getChildByName(element);
+        // for (let i = 1; i < names.length; i++) {
+        //     const element = names[i];
+        //     target = target.getChildByName(element);
+        // }
+        // return target;
+
+
+        let curPath:string="";
+        for (let i = 0; i < targetNode.children.length; i++) {
+            const child = targetNode.children[i];
+            if (child.name == name) {
+                return child;
+            }
+
+            let result = this.FindChildByName(child, name);
+            if (result != null)
+                return result;
         }
-        return target;
+        return null;
     }
 }
