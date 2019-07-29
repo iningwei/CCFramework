@@ -119,4 +119,18 @@ export class NodeExt {
 
         return null;
     }
+
+
+    /**
+     * 获得或添加组件
+     * @param targetNode 
+     * @param type 组件类型
+     */
+    public static GetOrAddComponent<T extends cc.Component>(targetNode: cc.Node, type: new () => T) {
+        let comp = targetNode.getComponent<T>(type);
+        if (comp == null) {
+            comp = targetNode.addComponent<T>(type)
+        }
+        return comp;
+    }
 }

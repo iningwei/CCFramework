@@ -1,5 +1,6 @@
 import { NodeExt } from "./SelfTool/NodeExt";
 import Debug from "./SelfTool/Debug";
+import TouchComp from "./SelfTool/TouchComp/TouchComp";
 
 // Learn TypeScript:
 //  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/typescript.html
@@ -40,7 +41,12 @@ export default class Test extends cc.Component {
         }
         else {
             Debug.Log("找到目标，pos:" + x.position);
+            NodeExt.GetOrAddComponent(x, TouchComp).SetTouchEndCallback(this.xxx.bind(this), 763);
         }
+    }
+
+    private xxx(event: cc.Event.EventTouch, para: number) {
+        Debug.Log("点击了，透传参数为：" + para);
     }
 
 
