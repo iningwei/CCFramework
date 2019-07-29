@@ -18,21 +18,28 @@ export default class Test extends cc.Component {
 
 
     start() {
-        let ttt1 = NodeExt.Search(this.node, "ttt");
-        if (ttt1 == null) {
-            Debug.Error("ttt1 is null");
-        }
-        else {
-            Debug.Error("ttt1 string:" + ttt1.getComponent(cc.Label).string);
-        }
+        // let ttt1 = NodeExt.Search(this.node, "ttt");
+        // if (ttt1 == null) {
+        //     Debug.Error("ttt1 is null");
+        // }
+        // else {
+        //     Debug.Error("ttt1 string:" + ttt1.getComponent(cc.Label).string);
+        // }
 
 
-        let ttt2 = NodeExt.FindChildByName(this.node, "ttt");
-        if (ttt2 == null) {
-            Debug.Error("ttt2 is null");
+        // let ttt2 = NodeExt.FindChildByName2(this.node, "ttt");
+        // if (ttt2 == null) {
+        //     Debug.Error("ttt2 is null");
+        // }
+        // else {
+        //     Debug.Error("ttt2 string:" + ttt2.getComponent(cc.Label).string);
+        // }
+        let x = NodeExt.GetChildByPath(this.node, "New Node/button2/sprite2");
+        if (x == null) {
+            Debug.Log("未能@  找到目标");
         }
         else {
-            Debug.Error("ttt2 string:" + ttt2.getComponent(cc.Label).string);
+            Debug.Log("找到目标，pos:" + x.position);
         }
     }
 

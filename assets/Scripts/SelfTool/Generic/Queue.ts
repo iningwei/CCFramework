@@ -1,22 +1,4 @@
-interface IQueue<T> {
-    /**
-     * 返回队顶对象，但不移除
-     */
-    Peek(): T;
-    /**
-     * 入队
-     * @param item 
-     */
-    Enqueue(item: T):void;
-    /**
-     * 返回队顶对象，并删除
-     */
-    Dequeue(): T;
-    Contains(item: T): boolean;
-    Empty(): boolean;
-    Count(): number;
-    Clear():void;
-}
+
 
 
 class Item<T>{
@@ -56,7 +38,8 @@ class Item<T>{
 /**
  * 泛型实现的队列结构，先进先出FIFO
  */
-export default class Queue<T> implements IQueue<T> {
+export default class Queue<T> {
+
     private header: Item<T>;//指向队头
     private trail: Item<T>;//指向队尾
 
@@ -68,6 +51,7 @@ export default class Queue<T> implements IQueue<T> {
         this.header.Next = this.trail;
         this.trail.Before = this.header;
     }
+
 
 
     Peek(): T {
@@ -126,7 +110,7 @@ export default class Queue<T> implements IQueue<T> {
         this.header.Next = this.trail;
         this.trail.Before = this.header;
         this.count = 0;
-    }
+    }     
 
     /**
      * Get all elements in queue
