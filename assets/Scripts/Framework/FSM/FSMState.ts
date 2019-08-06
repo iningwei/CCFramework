@@ -10,7 +10,7 @@ export class FSMState {
         return this.stateType;
     }
 
-    
+
     public AddTransition(trans: TransitionType, state: StateType): void {
         if (trans == TransitionType.None) {
             Debug.Error("error, not allow add TransitionType None");
@@ -27,6 +27,7 @@ export class FSMState {
         }
         this.map.Add(trans, state);
     }
+    
     public DeleteTransition(trans: TransitionType) {
         if (trans == TransitionType.None) {
             Debug.Error("DeleteTransition None is not allowed");
