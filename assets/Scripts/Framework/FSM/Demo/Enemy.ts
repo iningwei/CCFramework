@@ -22,14 +22,14 @@ export class Enemy extends Role {
      */
     public chaseSpeed: number = 80;
     /**
-     * 原始位置
-     * Retreat的目标点即此。到达原始位置后，Enemy会进入Idle状态
+     * 出生点
+     * Retreat的目标点即此。到达该位置后，Enemy会进入Idle状态
      */
-    public originPos: cc.Vec2;
+    public spawnPos: cc.Vec2;
     constructor(_node: cc.Node, _player: Player) {
         super(_node);
         this.player = _player;
-        this.originPos = this.node.position;
+        this.spawnPos = this.node.position;
 
         this.InitFSMSystem();
     }
