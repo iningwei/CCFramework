@@ -10,8 +10,16 @@ export class FSMState {
         return this.stateType;
     }
 
+    constructor() {
+        this.InitTransitions();
+        this.AddEventListeners();
+    }
 
-    public AddTransition(trans: TransitionType, state: StateType): void {
+    protected InitTransitions() {
+
+    }
+
+    protected AddTransition(trans: TransitionType, state: StateType): void {
         if (trans == TransitionType.None) {
             Debug.Error("error, not allow add TransitionType None");
             return;
@@ -27,8 +35,8 @@ export class FSMState {
         }
         this.map.Add(trans, state);
     }
-    
-    public DeleteTransition(trans: TransitionType) {
+
+    protected DeleteTransition(trans: TransitionType) {
         if (trans == TransitionType.None) {
             Debug.Error("DeleteTransition None is not allowed");
             return;
@@ -52,12 +60,20 @@ export class FSMState {
 
     }
     public DoBeforeLeaving(): void {
+        this.RemoveEventListeners();
+    }
+
+    protected AddEventListeners(): void {
 
     }
-    public Reason(...targets: any[]) {
+    protected RemoveEventListeners(): void {
 
     }
-    public Act(...targets: any[]) {
+
+    public Reason(dt: number, ...paras: any[]) {
+
+    }
+    public Act(dt: number, ...paras: any[]) {
 
     }
 }

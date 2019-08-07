@@ -81,4 +81,10 @@ export class FSMSystem {
         }
     }
 
+
+    public Update(dt: number): void {
+        this.curState.Reason(dt);
+        this.curState.Act(dt);
+    }
+
 }

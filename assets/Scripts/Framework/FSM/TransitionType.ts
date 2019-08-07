@@ -1,4 +1,11 @@
 
 export enum TransitionType {
-    None = 0,
+    None = "None",
+    EnemySeePlayer = "EnemySeePlayer",
+    EnemyLostPlayer = "EnemyLostPlayer",
+    EnemyReachOrigin = "EnemyReachOrigin",
+    EnemyReachTarget = "EnemyReachTarget",
+
+    PlayerDeath = "PlayerDeath",
+    PlayerNormal = "PlayerNormal"
 }

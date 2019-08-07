@@ -1,5 +1,10 @@
 
 export enum StateType {
-    None = 0,
+    None = "None",
+    EnemyIdle = "EnemyIdel",
+    EnemyChase = "EnemyChase",
+    EnemyRetreat = "EnemyRetreat",
 
+    PlayerNormal = "PlayerNormal",
+    PlayerDeath = "PlayerDeath",
 }
