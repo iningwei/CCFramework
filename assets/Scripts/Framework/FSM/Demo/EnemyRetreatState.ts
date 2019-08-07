@@ -18,7 +18,7 @@ export class EnemyRetreatState extends FSMState {
 
     public Reason(dt: number, ...paras: any[]) {
 
-        let disWithOrigin: number = this.enemy.originPos.sub(this.enemy.node.position).mag();
+        let disWithOrigin: number = this.enemy.spawnPos.sub(this.enemy.node.position).mag();
         if (disWithOrigin < 5) {
             this.enemy.fsmSystem.PerformTransition(TransitionType.EnemyReachOrigin);
             return;
@@ -35,7 +35,7 @@ export class EnemyRetreatState extends FSMState {
     }
 
     public Act(dt: number, ...paras: any[]) {
-        let dir = this.enemy.originPos.sub(this.enemy.node.position).normalize();
+        let dir = this.enemy.spawnPos.sub(this.enemy.node.position).normalize();
         this.enemy.node.position = this.enemy.node.position.add(new cc.Vec2(dir.x * dt * this.enemy.chaseSpeed, dir.y * dt * this.enemy.chaseSpeed));
     }
 }
